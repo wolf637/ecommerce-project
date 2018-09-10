@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ object.title }}<br>
+{{ object.description }}
+<img src="{{ object.image.url }}" alt="" class="img-fluid">
+</body>
+</html>
