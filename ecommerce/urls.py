@@ -20,13 +20,8 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 
 from . import views
-# from products.views import (ProductListView,
-#                             product_list_view,
-#                             ProductDetailView,
-#                             product_detail_view,
-#                             ProductFeaturedListView,
-#                             ProductFeaturedDetailView,
-#                             ProductDetailSlugView)
+from carts.views import cart_home
+
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
@@ -35,13 +30,7 @@ urlpatterns = [
     url(r'^products/', include('products.urls', namespace='products')),
     url(r'^search/', include('search.urls', namespace='search')),
     url(r'^bootstrap/$', TemplateView.as_view(template_name='bootstrap/example.html')),
-    # url(r'^featured/$', ProductFeaturedListView.as_view()),
-    # url(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
-    # url(r'^products/$', ProductListView.as_view()),
-    # url(r'^products_fbv/$', product_list_view),
-    # # url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
-    # url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
-    # url(r'^products_fbv/(?P<pk>\d+)/$', product_detail_view),
+    url(r'^cart/', cart_home, name='cart'),
     url(r'^login/', views.login_page, name='login'),
     url(r'^register/$', views.register_page, name='register'),
     url(r'^admin/', admin.site.urls),
