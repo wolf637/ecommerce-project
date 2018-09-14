@@ -5,6 +5,7 @@ from .forms import ContactForm, LoginForm, RegisterForm
 
 
 def home(request):
+
     context = {'title': 'Hello World!', 'content': 'just the content'}
 
     if request.user.is_authenticated:
