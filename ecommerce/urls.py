@@ -20,7 +20,6 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 
 from . import views
-from carts.views import cart_home
 
 
 urlpatterns = [
@@ -30,7 +29,7 @@ urlpatterns = [
     url(r'^products/', include('products.urls', namespace='products')),
     url(r'^search/', include('search.urls', namespace='search')),
     url(r'^bootstrap/$', TemplateView.as_view(template_name='bootstrap/example.html')),
-    url(r'^cart/', cart_home, name='cart'),
+    url(r'^cart/', include("carts.urls", namespace='cart')),
     url(r'^login/', views.login_page, name='login'),
     url(r'^register/$', views.register_page, name='register'),
     url(r'^admin/', admin.site.urls),
