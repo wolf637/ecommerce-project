@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from products.models import Product
 from django.db.models.signals import pre_save, m2m_changed
-from products.utils import unique_slug_generator
+from ecommerce.utils import unique_slug_generator
 
 User = settings.AUTH_USER_MODEL
 
