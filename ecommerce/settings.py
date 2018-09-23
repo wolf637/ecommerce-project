@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'tags',
     'carts',
     'orders',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +130,7 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "static_root")
 
+LOGOUT_REDIRECT_URL = '/login/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "media_root")

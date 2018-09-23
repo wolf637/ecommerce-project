@@ -18,7 +18,8 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
-
+from django.contrib.auth.views import LogoutView
+from accounts.views import login_page, register_page
 from . import views
 
 
@@ -30,8 +31,9 @@ urlpatterns = [
     url(r'^search/', include('search.urls', namespace='search')),
     url(r'^bootstrap/$', TemplateView.as_view(template_name='bootstrap/example.html')),
     url(r'^cart/', include("carts.urls", namespace='cart')),
-    url(r'^login/', views.login_page, name='login'),
-    url(r'^register/$', views.register_page, name='register'),
+    url(r'^login/', login_page, name='login'),
+    url(r'^logout/', LogoutView.as_view(), name='logout'),
+    url(r'^register/$', register_page, name='register'),
     url(r'^admin/', admin.site.urls),
 
 ]
