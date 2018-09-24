@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.contrib.auth.views import LogoutView
-from accounts.views import login_page, register_page
+from accounts.views import login_page, register_page, guest_register_view
 from . import views
 
 
@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^bootstrap/$', TemplateView.as_view(template_name='bootstrap/example.html')),
     url(r'^cart/', include("carts.urls", namespace='cart')),
     url(r'^login/', login_page, name='login'),
+    url(r'^register/guest', guest_register_view, name='guest_register'),
     url(r'^logout/', LogoutView.as_view(), name='logout'),
     url(r'^register/$', register_page, name='register'),
     url(r'^admin/', admin.site.urls),
